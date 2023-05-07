@@ -30,14 +30,18 @@ function onCardClick(event) {
 `)
 instance.show()
 
-document.addEventListener('keydown', function(event) {
-if (event.key === 'Escape') {
-instance.close()
-}
-});
-}
+document.addEventListener('keydown', closeByEscape) 
+    function closeByEscape({ code }) {
+      if (code === 'Escape') {
+    instance.close()
+  }
+  document.removeEventListener('keydown', closeByEscape)    
+  }
+};
 
-console.log(galleryItems);
+
+
+
 
 
 
